@@ -28,7 +28,7 @@ prompt = ChatPromptTemplate.from_messages([
 ready_llm = prompt | v_llm
 
 # --- LangChain SQL DB Wrapper ---
-sql_db = SQLDatabase.from_uri("postgresql://postgres:NOOnjaPiRRate77!@localhost:5432/mEdit")
+sql_db = SQLDatabase.from_uri(f"postgresql://postgres:{st.secrets['DB_PASSWORD']}@localhost:5432/mEdit")
 
 sql_agent = create_sql_agent(
     llm=v_llm,
